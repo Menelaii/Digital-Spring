@@ -1,0 +1,57 @@
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">Олимпиада Цифровая Весна. Секция Frontend. Жежа Даниил Сергеевич</a>
+</header>
+
+<div id="page-start" class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
+      <div class="position-sticky pt-3 sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/competitions']">
+              <img class="side-bar__icon" src="assets/icons/cup.svg" alt="cup.svg">
+              Соревнования
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/teams']">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users align-text-bottom" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Команды
+            </a>
+          </li>
+        </ul>
+
+        <hr>
+        <h6 class="sidebar-heading filters__header">
+          <img class="filters__icon" src="assets/icons/filter.svg" alt="filter.svg">
+          Фильтры
+        </h6>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <ul class="nav flex-column mb-2 filters">
+            <li class="nav-item control">
+              <label for="name-input">поиск по названию</label>
+              <input id="name-input" type="text" placeholder="название" formControlName="name">
+            </li>
+            <li class="nav-item control">
+              <label for="date-after-input">После</label>
+              <input id="date-after-input" type="datetime-local" formControlName="dateAfter">
+            </li>
+            <li class="nav-item control">
+              <label for="date-before-input">До</label>
+              <input id="date-before-input" type="datetime-local" formControlName="dateBefore">
+            </li>
+            <li class="nav-item filters__buttons">
+              <button class="btn btn-secondary" type="submit">Применить</button>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+      <router-outlet></router-outlet>
+
+    </main>
+  </div>
+</div>

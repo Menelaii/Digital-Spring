@@ -1,0 +1,31 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <h2>Команды</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+      <tr>
+        <th scope="col">Эмблема</th>
+        <th scope="col">Название</th>
+        <th scope="col">Короткое Название</th>
+        <th scope="col">TLA</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="selectable-row" *ngFor="let team of teams" (click)="onTeamClick(team)">
+        <td><img class="team-crest" [src]="team.crest" [alt]="team.crest"></td>
+        <td>{{team.name}}</td>
+        <td>{{team.shortName}}</td>
+        <td>{{team.tla}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
+
+<ng-template #loader>
+  <div class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Загрузка...</span>
+    </div>
+  </div>
+</ng-template>

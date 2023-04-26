@@ -1,0 +1,30 @@
+<ng-container *ngIf="!isLoading; else loader">
+  <h2>Соревнования</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+      <tr>
+        <th scope="col">Эмблема</th>
+        <th scope="col">Название</th>
+        <th scope="col">Код</th>
+        <th scope="col">Tип</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="selectable-row" *ngFor="let competition of competitions" (click)="onCompetitionClick(competition)">
+        <td><img class="competition-emblem" [src]="competition.emblem" [alt]="competition.emblem"></td>
+        <td>{{competition.name}}</td>
+        <td>{{competition.code}}</td>
+        <td>{{getType(competition)}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
+<ng-template #loader>
+  <div class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Загрузка...</span>
+    </div>
+  </div>
+</ng-template>

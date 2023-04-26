@@ -1,0 +1,15 @@
+@import "src/styles.scss";
+
+tr {
+  .competition-emblem {
+    max-width: 32px;
+    max-height: 32px;
+  }
+}
+
+.selectable-row {
+  cursor: pointer;
+  &:hover {
+    background-color: yellow;
+  }
+}

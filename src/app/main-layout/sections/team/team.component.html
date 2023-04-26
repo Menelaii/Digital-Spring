@@ -1,0 +1,15 @@
+<ng-container *ngIf="!(isMatchesLoading && isTeamLoading); else loader">
+  <div class="team-profile">
+    <img class="team-crest" [src]="team.crest" [alt]="team.crest">
+    <h2>{{team.name}}</h2>
+  </div>
+<app-matches-table [matches]="matches"></app-matches-table>
+</ng-container>
+
+<ng-template #loader>
+  <div class="spinner-container">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Загрузка...</span>
+    </div>
+  </div>
+</ng-template>

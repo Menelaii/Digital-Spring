@@ -1,0 +1,13 @@
+@import "src/styles.scss";
+
+.team-crest {
+  max-width: 32px;
+  max-height: 32px;
+}
+
+.selectable-row {
+  cursor: pointer;
+  &:hover {
+    background-color: yellow;
+  }
+}
